@@ -24,12 +24,12 @@ const resolvers = {
       deleteTodo: async (parent, { id }) => {
         const todo = await Todo.findByPk(id);
         if (!todo) {
-          return false;
+          return 0;
         }
         await todo.destroy();
-        return true;
+        return id;
       },
     },
-  };  
+};  
 
 export default resolvers;
